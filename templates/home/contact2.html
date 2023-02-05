@@ -1,0 +1,123 @@
+{% extends "home/base.html" %}
+
+{% block title %}  contact  {% endblock title %}
+
+
+
+
+
+{% block contents %}  
+
+
+{% if request.user.is_authenticated %}
+
+    <!-- we can use  css link create and use them in any pages  -->
+<!-- <link rel="stylesheet" href="/static/css/home/contact.css"> -->
+
+
+<form action="{% url 'contact' %} " method="post">
+   
+    {% csrf_token %}
+
+    <div class="container pt-5 pb-5 ">
+        <div class="row justify-content-evenly  pt-2 pb-5" style="background-color:#f1f1f1 ;">
+            <div class="col-md-5 mt-5 ">
+                <h3 class="mb-4">Contact Form</h3>
+                <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label">Full Name</label>
+                    <input type="text" class="form-control" id="exampleInputEmail1" name="name" required maxlength="30"  placeholder="Enter your name"  aria-describedby="emailHelp">
+                  </div>
+                <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label">Email address</label>
+                    <input type="email" class="form-control" id="exampleInputEmail1"  name="email" placeholder="Enter your mail" maxlength="30" required aria-describedby="emailHelp">
+                    <div id="emailHelp" class="form-text">We'll never share your email with anyone.</div>
+                  </div>
+                
+                <div class="mb-3">
+                    <label for="exampleFormControlTextarea1" class="form-label">Message</label>
+                    <textarea class="form-control" id="exampleFormControlTextarea1" name="msg" placeholder="Enter your message ..." required  rows="3"></textarea>
+                </div>
+                <button type="submit" class="btn btn-danger">Submit</button>
+            </div>
+
+
+
+
+        </form>
+
+       
+             
+     <!-- address  -->
+            <div class="col-md-5 mt-5">
+           <h3 class="mb-4 display-6">Address</h3>
+           <p>Mughalsarai(DDU)  Patel Nagar <br>
+             Near 40 feet-road  <br>
+             <i class="bi bi-telephone"></i> :+918542XXXXXX </p>
+             <iframe class="img-fluid pt-2 pb-5" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1474.0816143880104!2d83.11595043973405!3d25.289959969401536!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x398e3addfe9c208d%3A0x5b974047c716b83e!2sPatel%20Nagar%2040%20Fit%20Road%2C%20Patel%20Nagar%2C%20Mughalsarai%2C%20Uttar%20Pradesh%20232101!5e0!3m2!1sen!2sin!4v1657554397619!5m2!1sen!2sin" width="500" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+            
+        </div>
+        
+        <!-- end container  -->
+    </div>
+
+
+{% for i in data %}
+
+<div class="container" style="background-color: yelllow;border: 2px solid black; margin:10px;">
+    <hr>
+    <!-- according to model variabel yaha likna h -->
+    <h1>name : {{i.name | safe}}  </h1>
+    <h2>email : {{i.email | safe }} </h2>
+    <h3>message :{{i.message | safe | truncatechars:100}} </h3>
+    <hr>
+    </div>
+    
+  
+{% endfor %}
+
+
+
+
+
+    
+    
+        <!-- footer  -->
+        <div class="row justify-content-evenly bg-danger text-light pt-2 pb-5 mx-0">
+            <div class="col-md-3 pt-4 ">
+                <h3 class="">Bussines Mindset</h3>
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Autem quos impedit adipisci vel quod mollitia fugit quis consectetur, magni maxime non vitae perferendis eius alias in cum, minima earum? Voluptatum?</p>
+            </div>
+    
+            <div class="col-md-3 pt-4" >
+              <h3>Important Links</h3>
+               <a  class="text-white" href="">Home</a>  <br>
+                <a class="text-white"  href="">About Us</a> <br>
+                <a class="text-white" href="">Contact Us</a> <br> 
+                 <a class="text-white" href="">Our Team </a> <br>
+                <a class="text-white" href="">Our Client</a> 
+            </div>
+            <div class="col-md-3 pt-4">
+                <h3 class="mb-4 display-6">Contact</h3>
+                <p>Mughalsarai(DDU)  Patel Nagar <br>
+                  Near 40 feet-road <br> <i class="bi bi-telephone"></i> :+918542XXXXXX </p>
+            </div>
+        </div>
+        <div class="row text-center bg-dark pt-3 pb-1 mx-0 ">
+            <div class="col-12">
+                <p class="text-light">&copy;2022</p>
+            </div>
+        </div>
+    
+  {% else %}
+       
+        <a href="/login" class="btn btn-primary">Loing first then you access</a>
+         
+ {% endif %}
+  
+    
+
+
+
+{% endblock contents %}
+

@@ -1,0 +1,154 @@
+{% extends "home/base.html" %}
+
+<!-- {% load static %} -->
+
+
+{% block title %} Home  {% endblock title %}
+
+
+
+<!-- <link rel="stylesheet" href="/static/css/home/index.css"> -->
+
+
+
+
+
+{% block contents %}   
+
+
+
+<!-- carasole  -->
+<!-- section 1 -->
+
+
+   
+      
+<section>
+        <marquee style="color: red;" behavior="" direction="" >
+            <a href="www.google.com" style="color: red;"></a>
+            This my lovely Profession site how was it look tell in the contact message form 
+        </marquee> 
+ 
+
+    <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        </div>
+   
+        <!-- defaultcarouselclass="img-fluid" -->
+
+        {% for i in data1 %}
+        <div class="carousel-inner">
+         <div class="carousel-item active ">
+          <img src="/media/{{i.image | safe}}"  class="d-block w-100 img-fluid " alt="...">
+          <div class="carousel-caption d-none d-md-block">
+            <h5>{{i.imgtitle | safe}}</h5>
+            <p>{{i.imginto | safe |capfirst}}</p>
+          </div>
+          </div>  
+         {% endfor %}
+
+         <!-- carousel  -->
+
+          {% for i in data %}
+          <div class="carousel-item">
+            <img src="/media/{{i.image | safe}}" class="d-block w-100 img-fluid" alt="...">
+            <div class="carousel-caption d-none d-md-block">
+              <h5>{{i.imgtitle | safe}}</h5>
+              <p>{{i.imginto | safe | capfirst}}</p>
+            </div>
+          </div>
+
+          {% endfor %}
+         
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+
+<!-- </div> -->
+</section>
+
+
+
+<!-- section 2 -->
+<section>
+
+  <dev class="container-fluid">
+      <h1 class="text-center text-capatilize  pt-5">Welcome To My Front END Sites</h1>
+      <!-- <hr class="w-25 mx-auto pt-5"> -->
+  </dev>
+
+</section>
+
+
+{% if request.user.is_authenticated %}
+<!-- section 3 -->
+<section>
+  <div class="container text-center mx-auto my-5">
+      <div class="row mx-3 my-5" >
+
+        
+        <!-- card  -->
+          {% for i in data2  %}
+    
+          <div class="col-xl-4 border  my-5 " >
+              <img src="/media/{{i.image | safe}} "   width="50px" height="50px" style="margin:20px;" alt="">
+              <h1 class="text-center text-capatilize text-dark pt-3 my-4  ">{{i.imgtitle | safe | upper}}</h1>
+              <P class="p">{{i.imginto | safe | capfirst}}</P>
+                  <button type="button" class="btn btn-primary my-4"><a href="{{i.link}}" style="color: white;text-decoration: none;">CLICK ME</a></button>
+              <!-- <hr class="w-25 mx-auto pt-5"> -->
+          </div>
+       {% endfor %}      
+   
+       
+
+
+
+        
+      </div>
+
+  </div>
+
+
+</section>
+
+{% else %}
+       
+<a href="/login" class="btn btn-primary">Loing first then you access</a>
+ 
+{% endif %}
+
+<!-- section 4 -->
+
+
+<section>
+  <div class="container-fluid px-0   text-center">
+      <div class="card-footer  bg-dark ">
+
+          <a class="a text-light" href="https://www.linkedin.com/in/vaibhav-raj-singh-5617081bb/">linkdin</a>
+
+          <a class="a text-light" href="https://github.com/Vaibhav-12345">github</a>
+          <a class="a text-light" href="">Facebook</a>
+          <p class="a text-light  my-4">&copy; 2018</p>
+      </div>
+  </div>
+
+
+
+</section>
+
+
+    
+{% endblock contents %}
+
+
+

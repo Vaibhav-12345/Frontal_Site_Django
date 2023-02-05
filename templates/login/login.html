@@ -1,0 +1,74 @@
+{% extends "home/base.html" %}
+
+{% block title %} login form {% endblock title %}
+
+
+<!-- <link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"> -->
+
+{% block contents %}      
+  
+<div class="container">
+    
+<div class="container mx-auto  my-5 ">
+    <div class="row mx-auto">
+      <img class="mx-auto" src="/static/image/user.png" style="height:150px ; width:150px ;margin: auto;" alt="None">
+    </div>
+
+    <div class="row mx-auto text-center" style="margin:auto ;">
+
+   <form action="/login/"  method="post" >
+      
+    {% csrf_token %}
+
+    <br>
+    <br>
+    <label for="">Enter :__USER_MOBILE_NO_</label><br>
+    <span><i class="fa fa-phone"><strong> : </strong></i></span>
+    <input type="number"  name="number"  placeholder="user mobile no">
+    <!-- <input type="email"  name="email"  placeholder="user email"> -->
+    
+    <br>
+    <br>
+    
+    <label for="">Enter : _PASSWORD__</label><br>
+    <span><i class="fa fa-user"></i><strong> : </strong></span>
+    <input type="password" name="password"  placeholder="Enter your password">
+    
+    <br>
+    <br>
+
+
+
+        
+          
+        <p> Have not account please ?<a href="/signup" target="_blank"> sign up </a> </p>
+        <!-- <a href="#" style="width:100px ; margin: auto;"class="btn btn-block text-center text-light bg-primary" >Login</a> -->
+        <!-- <button type="submit"  style="width:100px ; margin: auto;" class="btn btn-block text-center text-light bg-primary" >Login</button> -->
+
+        <input type="submit"style="width:100px ; margin: auto;" class="btn btn-block text-center text-light bg-primary"  value="Login">
+          
+        <br>
+        <br>
+     
+        <!-- oauth social login  -->
+        <br>
+        <p><strong>-- OR --</strong></p>
+
+        <div class="container mt-4 bg-white p-3">
+          <a class="btn btn-primary" href="{% url 'social:begin' 'github' %}"><i class="fab fa-github"></i>&nbsp;Github</a>
+             <a class="btn btn-primary" href="{% url 'social:begin' 'google-oauth2' %}"> <i class="fab fa-google"></i>&nbsp;Google</a>
+             <!-- <a class="btn btn-primary" href="{% url 'social:begin' 'facebook' %}"><i class="fab fa-facebook"></i>&nbsp;Facebook</a> -->
+       </div>
+ 
+
+
+      </form>
+    </div>
+
+  </div>
+    
+
+
+    
+{% endblock contents %}

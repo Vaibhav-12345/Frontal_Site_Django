@@ -1,0 +1,199 @@
+{% extends "home/base.html" %}
+
+{% block title %} Signup form {% endblock title %}
+
+
+<!-- <link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"> -->
+
+{% block contents %}      
+  
+
+
+<div class="container">
+    
+    <div class="container mx-auto  my-5 ">
+        <div class="row mx-auto">
+          <img class="mx-auto" src="/static/image/user.png" style="height:150px ; width:150px ;margin: auto;" alt="">
+        </div>
+    
+        <div class="row mx-auto text-center" style="margin:auto ;">
+        
+            <!-- form start  -->
+            <form action="/signup/" method="post">
+                {% csrf_token %}
+
+
+
+                <br>
+                <br>
+                <!-- <label for="">Enter :__USER_NAME_</label><br> -->
+                <span><i class="fa fa-user"><strong> : </strong></i></span>
+                <input type="text"   name="fname"  required   placeholder="user first name">
+                
+                <br>
+                <br>
+                
+                <!-- <label for="">Enter : _PASSWORD__</label><br> -->
+                <span><i class="fa fa-user"></i><strong> : </strong></span>
+                <input type="text"  name="lname"  required   placeholder="user last name">
+                
+                <br>
+                <br>
+
+
+                <!-- <label for="">Enter :__USER_NAME_</label><br> -->
+                <span><i class="fa fa-envelope"><strong> : </strong></i></span>
+                <input type="email"  name="email" required placeholder="user email">
+                
+                <br>
+                <br>
+                
+                <!-- <label for="">Enter : _PASSWORD__</label><br> -->
+                <span><i class="fa fa-phone"></i><strong> : </strong></span>
+                <input type="number"  name="number"  required   placeholder="Enter your mobile no">
+                
+                <br>
+                <br>
+
+                
+                <!-- <label for="">Enter : _PASSWORD__</label><br> -->
+                <span><i class="fa fa-user"></i><strong> : </strong></span>
+                <input type="password"  name="password"  required   placeholder="Enter your password">
+                
+                <br>
+                <br>
+               
+                <!-- <label for="">Enter : _PASSWORD__</label><br> -->
+                <span><i class="fa fa-user"></i><strong> : </strong></span>
+                <input type="password"  name="cpassword"  required   placeholder="Enter your confirm password">
+                
+                <br>
+                <br>
+
+                
+               
+                
+              
+
+                 <input type="submit" value="Create Account" class="btn btn-block text-center text-light bg-primary" >
+
+                 <p class="text-center mt-3">Have an account ? <a href="/login">login</a></p>
+
+
+            </form>
+       
+
+
+
+
+        </div>
+    
+      </div>
+        
+
+
+
+  <!-- going to start  signup design -->
+  <!-- <div class="container">
+    <div class="card  bg-light">
+        <div class="card-body mx-auto">
+            <h4 class="card-title text-center mt-3">Creating Account</h4>
+            <p class="text-center">Get start learning in best way..</p>
+
+            <a href="#" class="btn  btn-block text-light bg-danger"> <i class="fab fa-google"></i>Login via Google
+
+            </a>
+            <a href="#" class="btn  btn-block  text-light bg-info"> <i class="fab fa-twitter"></i></i>Login via
+                twitter
+
+            </a>
+            <a href="#" class="btn  btn-block text-light bg-primary"> <i class="fab fa-facebook-f"></i></i>Login via
+              Facebook
+
+            </a>
+
+            <p class="divider mt-4 text-center"> <span> OR</span></p>
+
+            form start 
+            <form action="/signup/" method="post">
+                {% csrf_token %}
+                <div class="form-group  input-group mb-3 ">
+
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="fa fa-user"></i></span>
+                    </div>
+                    <input type="text" class="form-control " name="fname"  required placeholder="Enter First Name">
+                </div>
+               
+                <div class="form-group  input-group mb-3 ">
+
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="fa fa-user"></i></span>
+                    </div>
+                    <input type="text" class="form-control " name="lname"   placeholder="Enter Last Name">
+                </div>
+
+
+                <div class="form-group  input-group mb-3 mt-1">
+
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="fa fa-envelope"></i></span>
+                    </div>
+                    <input type="email" class="form-control " name="email"  required  placeholder="Enter Email">
+
+                </div>
+
+
+
+       
+                <div class="form-group  input-group mb-3 mt-1">
+
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="fa fa-phone"></i></span>
+                    </div>
+                    <select name="" id="" class="custom-select" style="max-width:100px ;">
+                        <option value="">+91</option>
+                        <option value="">+92</option>
+                        <option value="">+93</option>
+                    </select>
+                    <input type="number" class="form-control"   name="number" required  placeholder="Enter Mobile No">
+
+                </div>
+
+                <div class="form-group  input-group mb-3 mt-1">
+
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="fa fa-user"></i></span>
+                    </div>
+                    <input type="password" class="form-control" name="password" required  placeholder="Enter password">
+
+                </div>
+
+                <div class="form-group  input-group mb-3 mt-1">
+
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="fa fa-user"></i></span>
+                    </div>
+                    <input type="password" class="form-control" name="cpassword" required  placeholder="Re-enter password">
+
+                </div>
+
+                 <a href="#" class="btn btn-block text-center text-light bg-primary" >Create Account</a>
+                 <input type="submit" value="Create Account" class="btn btn-block text-center text-light bg-primary" >
+
+                 <p class="text-center mt-3">Have an account ? <a href="/login">login</a></p>
+
+
+            </form>
+
+
+
+        </div>
+
+    
+
+    </div>
+</div> -->
+    
+{% endblock contents %}
